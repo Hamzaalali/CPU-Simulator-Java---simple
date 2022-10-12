@@ -1,6 +1,6 @@
 package Parts;
 
-import Simulator.Task;
+import task.Task;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -18,11 +18,11 @@ public class HardDisk {
         Scanner taskReader=new Scanner(taskFile);
         int tasksNumber=Integer.parseInt(taskReader.nextLine());
         for(int i=0;i<tasksNumber;i++){
-            String taskString=taskReader.nextLine();
+
             Task task=new Task();
-            task.setCreationTime(Integer.parseInt(String.valueOf(taskString.charAt(0))));
-            task.setExecutionTime(Integer.parseInt(String.valueOf(taskString.charAt(2))));
-            task.setPriority(Integer.parseInt(String.valueOf(taskString.charAt(4))));
+            task.setCreationTime(taskReader.nextInt());
+            task.setExecutionTime(taskReader.nextInt());
+            task.setPriority(taskReader.nextInt());
             tasks.add(task);
         }
     }

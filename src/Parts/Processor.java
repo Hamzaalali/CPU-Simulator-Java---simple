@@ -1,6 +1,6 @@
 package Parts;
 
-import Simulator.Task;
+import task.Task;
 
 public class Processor{
 
@@ -46,8 +46,7 @@ public class Processor{
         isBusy=true;
         this.assignedTask = assignedTask;
         assignedTaskExecutionTime=assignedTask.getExecutionTime();
-        System.out.println("Assigned Task "+assignedTask.getTaskId()+" To Processor "+processorId);
-
+        System.out.println("Assigned Task "+assignedTask.getTaskId()+" To Processor "+processorId+" Execution Time : "+assignedTaskExecutionTime);
     }
 
     private class RunnableProcessor implements Runnable{
@@ -61,6 +60,5 @@ public class Processor{
                 }
             }
         }
-
     }
 }

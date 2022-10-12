@@ -1,4 +1,4 @@
-package Simulator;
+package task;
 
 public class Task implements Comparable<Task> {
     int creationTime;
@@ -53,5 +53,15 @@ public class Task implements Comparable<Task> {
         }else{
             return 1;
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Task{" +
+                "taskId=" + taskId +
+                ", creationTime=" + creationTime +
+                ", executionTime=" + executionTime +
+                ", priority=" + priority +
+                '}';
     }
 }

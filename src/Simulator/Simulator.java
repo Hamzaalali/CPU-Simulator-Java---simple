@@ -29,7 +29,7 @@ public class Simulator {
     }
     public synchronized void startSimulation(){
         startThreads();
-        while(clock.getCycle()!=simulationTime+1) {
+        while(clock.getCycle()!=simulationTime) {
             try {
                 wait();
                 System.out.println(clock.getCycle());

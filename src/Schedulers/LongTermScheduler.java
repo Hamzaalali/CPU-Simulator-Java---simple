@@ -3,7 +3,7 @@ package Schedulers;
 import Parts.Clock;
 import Parts.HardDisk;
 import Parts.MainMemory;
-import Simulator.Task;
+import task.Task;
 
 public class LongTermScheduler implements Runnable {
     HardDisk hardDisk;

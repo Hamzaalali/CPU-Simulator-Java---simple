@@ -1,6 +1,6 @@
 package Parts;
 
-import Simulator.Task;
+import task.Task;
 
 import java.util.PriorityQueue;
 import java.util.Queue;

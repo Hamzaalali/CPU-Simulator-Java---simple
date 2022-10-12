@@ -21,12 +21,10 @@ public class ShortTermScheduler implements Runnable {
         while (isRunning){
             try {
                 wait();
-                for(Processor processor:processorList){
-                    synchronized (processor){
-                        processor.notifyProcessor();
-                    }
-                }
                 assignTasks();
+                for(Processor processor:processorList){
+                    processor.notifyProcessor();
+                }
             } catch (InterruptedException e) {
                 System.out.println(e.getMessage());
             }
@@ -35,13 +33,12 @@ public class ShortTermScheduler implements Runnable {
 
     public void assignTasks(){
         for(Processor processor:processorList){
-            synchronized (processor){
-                if(!processor.isBusy()){
-                    System.out.println("Processor "+processor.getProcessorId()+" Is Idle");
-                }
-                if (!processor.isBusy()&& !mainMemory.getReadyQueue().isEmpty()){
-                        processor.setAssignedTask(mainMemory.getReadyQueue().remove());
-                }
+            if(!processor.isBusy()){
+                System.out.println("Processor "+processor.getProcessorId()+" Is Idle");
+            }
+            if (!processor.isBusy()&& !mainMemory.getReadyQueue().isEmpty()){
+                    processor.setAssignedTask(mainMemory.getReadyQueue().remove());
+//                        processor.notifyProcessor();
             }
         }
     }
